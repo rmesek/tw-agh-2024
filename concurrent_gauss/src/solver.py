@@ -62,4 +62,12 @@ def gaussian_elimination(A: NDArray, b: NDArray) -> tuple[NDArray, NDArray]:
                 print(f"C_{i}_{j}_{k}")
                 task_C(i, j, k)
 
+    # Back substitution
+    for i in range(N - 1, -1, -1):
+        for j in range(N - 1, i, -1):
+            M[i, N] -= M[j, N] * M[i, j]
+            M[i, j] = 0.0
+        M[i, N] /= M[i, i]
+        M[i, i] = 1.0
+
     return M[:, :-1], M[:, -1]
