@@ -69,6 +69,8 @@ def gaussian_elimination(A: NDArray, b: NDArray) -> tuple[NDArray, NDArray]:
 
     # Back substitution
     for i in range(N - 1, -1, -1):
+        for j in range(0, i):
+            M[i, j] = 0.0
         for j in range(N - 1, i, -1):
             M[i, N] -= M[j, N] * M[i, j]
             M[i, j] = 0.0
