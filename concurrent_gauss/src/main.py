@@ -28,7 +28,7 @@ parser.add_argument(
     "--input",
     type=valid_in_file,
     required=True,
-    help="Input text file containing NxN matrix to analyze (required)",
+    help="Input text file containing NxN matrix A and b vector (required). File format: N \\n A \\n b",
 )
 
 parser.add_argument(
